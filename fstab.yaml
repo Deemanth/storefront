@@ -1,6 +1,6 @@
 mountpoints:
   /:
-    url: https://adobe.sharepoint.com/:f:/r/sites/storefront1/Shared%20Documents/store
+    url: https://adobe.sharepoint.com/:f:/r/sites/mystorefront/Shared%20Documents/store1
     type: markup
 
 folders:
