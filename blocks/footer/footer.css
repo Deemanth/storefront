@@ -4,70 +4,143 @@ footer {
     letter-spacing: var(--type-body-2-default-letter-spacing);
 }
 
-footer .footer > div {
-    margin: auto;
-    max-width: 1200px;
-    padding: 40px 24px 24px;
+
+.picture-wrapper {
+    display: flex;
+    gap: 24px;
 }
 
-footer .footer p {
+.social-icons {
+    padding: 20px 0;
+}
+
+.social-icons .icon {
+    padding-right: 10px;
+}
+
+.payment-cards .icon {
+    padding-right: 10px;
+}
+
+.accordion {
+    list-style: none;
+    padding: 0;
     margin: 0;
 }
 
-.storeview-switcher-button {
-    background: transparent;
-    padding-left: 0;
-}
-
-.storeview-modal-storeview-title {
-    margin-bottom: var(--spacing-xxbig);
-    padding-inline-start: var(--spacing-xbig);
-}
-
-.modal .close-button {
-    top: 40px !important;
-    right: 40px !important;
-}
-
-.storeview-single-store {
-    list-style-type: none;
-}
-
-.storeview-selection .storeview-multiple-stores {
-    list-style-image: url("../../icons/chevron-right.svg");
-    list-style-position: inside;
-}
-
-.storeview-selection > li {
-    margin-bottom: var(--spacing-small);
-}
-
-.storeview-multiple-stores > ul {
-    position: relative;
-    width: 100%;
-}
-
-.storeview-multiple-stores > ul > li {
-    list-style: none;
+.accordion input[type="checkbox"] {
     display: none;
 }
 
-.storeview-multiple-stores[aria-expanded="true"] {
-    list-style-image: url("../../icons/chevron-down.svg");
-}
-
-.storeview-multiple-stores[aria-expanded="true"] > ul {
-    padding-left: 0;
-}
-
-.storeview-multiple-stores[aria-expanded="true"] > ul > li {
+.accordion label {
     display: block;
-    list-style-type: none;
-    margin-bottom: var(--spacing-small);
+    border-top: 1px solid black;
+    color: black;
+    padding: 10px;
+    cursor: pointer;
+    margin: 2px 0;
+    position: relative;
+    font-weight: bold;
 }
 
-@media (width >= 900px) {
-    footer .footer > div {
-        padding: 40px 32px 24px;
+.accordion label::after {
+    content: "+";
+    position: absolute;
+    right: 15px;
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.accordion input[type="checkbox"]:checked+label::after {
+    content: "−";
+    /* Unicode minus sign */
+}
+
+.accordion ul {
+    list-style: none;
+    padding-left: 20px;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, padding 0.3s ease-in-out;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.accordion input[type="checkbox"]:checked+label+ul {
+    max-height: 300px;
+    /* Ensure this is more than the content height */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.accordion li ul li {
+    padding: 8px 10px;
+}
+
+@media (min-width: 376px) {
+    .flex-row-wrapper {
+        display: flex;
+        gap: 20px;
+    }
+
+    .header-info-button-wrapper,
+    .picture-wrapper {
+        flex: 1 1 50%;
+        box-sizing: border-box;
+    }
+
+    .social-icons {
+        display: inline;
+    }
+
+    /* Top-level <ul> (horizontal layout) */
+    ul {
+        display: flex;
+        gap: 20px;
+        /* space between top-level <li>s */
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: relative;
+    }
+
+    /* Bold only the top-level <li> content */
+    ul>li {
+        font-weight: 600;
+        font-size: 24px;
+    }
+
+    ul>li>ul {
+        padding-top: 20px;
+    }
+
+    /* Reset font weight for nested <li> items */
+    ul>li>ul li {
+        font-weight: normal;
+        font-size: 14px;
+        padding: 0;
+    }
+
+    /* Child <ul> hidden by default */
+    ul>li>ul {
+        display: list-item;
+    }
+
+}
+
+@media (min-width: 745px) {
+    .flex-row-wrapper {
+        display: block;
+    }
+    .top-row-wrapper {
+        display: flex;
+        gap: 80px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .flex-row-wrapper {
+        display: flex;
     }
 }
