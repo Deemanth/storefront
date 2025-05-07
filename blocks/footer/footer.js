@@ -37,8 +37,8 @@ export default async function decorate(block) {
   //group and add wrapper class for picture tag
   const firstSection = fragment.querySelector('.section:first-of-type')
   const defaultContent = firstSection.querySelector('.default-content-wrapper');
-  // const pictureTags = firstSection.querySelector('picture').parentElement;
-  // pictureTags.className = 'picture-wrapper';
+  const pictureTags = firstSection.querySelector('picture').parentElement;
+  pictureTags.className = 'picture-wrapper';
 
   //group header,information and button class 
   const header = firstSection.querySelector('h2');
